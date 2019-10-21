@@ -6,6 +6,7 @@ import NoMatch from './Components/NoMatch'
 import About from './Components/About'
 import PokemonList from './Components/PokemonList'
 import TestJS from './Components/TestJS'
+import OwnUseReducer from './Components/OwnUseReducer'
 
 import {
 	BrowserRouter as Router,
@@ -43,6 +44,10 @@ function App() {
             <li>
               <Link to="/pokemon-list">PokemonList</Link>
             </li>          
+            <li>
+              <Link to="/own-use-reducer">CreateUseReducer</Link>
+            </li>          
+            
           </ul>
 
         </header>
@@ -52,6 +57,7 @@ function App() {
           <ScrollToTopRoute exact path="/about" component={About} />
           <ScrollToTopRoute exact path="/test-js" component={TestJS} />
           <ScrollToTopRoute exact path="/pokemon-list" component={PokemonList} />
+          <ScrollToTopRoute exact path="/own-use-reducer" component={OwnUseReducer} />
           <ScrollToTopRoute exact component={NoMatch} />
         </Switch>
 

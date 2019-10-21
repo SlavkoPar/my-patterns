@@ -14,12 +14,35 @@ class Home extends Component {
 
 	render() {
 		return (
-			<>
-				<h1>Home, {this.props.name}</h1>
-				<p>
-				Visit <code>src/App.js</code>.
-				</p>
-			</>
+	
+			<div className="container">
+				<div className="a">
+					<div>a01</div>
+					<div>a02</div>
+					<div>a03</div>
+					<div>a04</div>
+					<div>a05</div>
+					<div>a06</div>
+					<div>a07</div>
+					<div>a08</div>
+					<div>a09</div>
+					<div>a10</div>
+					<div>a11</div>
+					<div>a12</div>
+				</div>
+
+				<div className="b">
+					<div>b01</div>
+					<div>b02</div>
+					<div>b03</div>
+				</div>
+
+				<div className="c">
+					<div>c01</div>
+					<div>c02</div>
+					<div>c03</div>
+				</div>
+			</div>			
 		)
 	 }
 
