@@ -45,6 +45,7 @@ function SortBy2Params(arr) {
   return arr;
 }
 
+
 class TestJS extends Component {
 	
 	render() {
@@ -57,7 +58,41 @@ class TestJS extends Component {
     SortBy2Params(arr);
   
     var maxOccurring = maximumOccurringCharacter("Hello World");
-  
+
+
+    const ShoppingCart = [
+      {name: 'Abc', type:"book", amount: 3.00},
+      {name: 'Def', type:"info", amount: 10.50},
+      {name: 'Ghi', type:"book", amount: 7.0},
+      {name: 'Jkl', type:"info", amount: 4.00},
+      {name: 'Mno', type:"book", amount: 5.50}
+    ]
+    const byBooks = (order) => order.type == "book";
+    const cartAmount = (order) => order.amount;
+    const suma = (acc, amount) => acc + amount;
+    const total = ShoppingCart
+                .filter(byBooks)
+                .map(cartAmount)
+                .reduce(suma, 0);
+
+    //////////////////////
+    // Grouped people
+    var people = [
+      { name: 'Dexon', age: 20 },
+      { name: 'Alice', age: 21 },
+      { name: 'Jane', age: 20 }
+    ];
+       
+    function fn(acc, obj) {
+      var key = obj['age'];
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(obj);
+      return acc;
+    }
+
+    const groupedPeople = people.reduce(fn, {});
 
 		return (
 			<>
@@ -98,6 +133,37 @@ class TestJS extends Component {
           </ul>
         </div>
         <hr/>
+        <div>
+        total: {total}
+        </div>
+        <hr/>
+        <div>
+          groupedPeople is:
+          <pre>
+          {` 
+          var people = [
+            { name: 'Dexon', age: 20 },
+            { name: 'Alice', age: 21 },
+            { name: 'Jane', age: 20 }
+          ];          
+
+          {
+            20: [ { name: 'Dexon', age: 20 }, { name: 'Jane', age: 20 } ], 
+            21: [{ name: 'Alice', age: 21 }] 
+          }`}
+          </pre>
+          <ul>
+          { 
+            Object.entries(groupedPeople).map(item => 
+              <li>
+                {item[0]}  
+                  <div>{ 
+                    item[1].map(it => <span>{it.name} {it.age},</span>)
+                  }</div>
+              </li>)
+          }
+          </ul>
+        </div>
 			</>
 		)
 	 }
