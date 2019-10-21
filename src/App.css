@@ -3,18 +3,16 @@
 }
 
 .App-logo {
-  height: 10vmin;
+  height: 8vmin;
+  bbborder: 1px solid yellow;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 8vh;
+  
   color: white;
+  bbborder: 1px solid yellow;
 }
 
 .App-link {
@@ -36,3 +34,9 @@
 .router-links > li {
   margin: 0px 10px;
 }
+
+.router-links > li > a {
+  text-decoration: none !important;
+  color: #09d3ac;
+}
+

@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 
 class ScrollToTop extends Component {
 
+	/*
+		https://blog.bitsrc.io/the-love-hate-relationship-between-react-router-and-react-components-dee4aac5956c
+	*/
 	componentDidUpdate(prevProps) {
 		if (this.props.location.pathname !== prevProps.location.pathname) {
 			window.scrollTo(0, 0);

@@ -4,6 +4,8 @@ import Home from './Components/Home'
 import Search from './Components/Search'
 import NoMatch from './Components/NoMatch'
 import About from './Components/About'
+import PokemonList from './Components/PokemonList'
+import TestJS from './Components/TestJS'
 
 import {
 	BrowserRouter as Router,
@@ -16,15 +18,18 @@ import {
 
 import logo from './logo.svg';
 import './App.css';
-
+import './PokemonList.css';
 
 function App() {
   return (
     <div className="App">
+
     	<Router history={History}>
       
         <header className="App-header">
+
           <img src={logo} className="App-logo" alt="logo" />
+          
           <ul className="router-links">
             <li>
               <Link to="/">Home</Link>
@@ -33,10 +38,10 @@ function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/search">search</Link>
+              <Link to="/test-js">TestJS</Link>
             </li>
             <li>
-              <Link to="/">NoMatch</Link>
+              <Link to="/pokemon-list">PokemonList</Link>
             </li>          
           </ul>
 
@@ -45,12 +50,13 @@ function App() {
         <Switch>
           <ScrollToTopRoute exact path="/" component={Home} />
           <ScrollToTopRoute exact path="/about" component={About} />
-          <ScrollToTopRoute exact path="/search" component={Search} />
+          <ScrollToTopRoute exact path="/test-js" component={TestJS} />
+          <ScrollToTopRoute exact path="/pokemon-list" component={PokemonList} />
           <ScrollToTopRoute exact component={NoMatch} />
         </Switch>
 
       </Router>
-
+      
     </div>
   );
 }
