@@ -7,6 +7,7 @@ import About from './Components/About'
 import PokemonList from './Components/PokemonList'
 import TestJS from './Components/TestJS'
 import OwnUseReducer from './Components/OwnUseReducer'
+import MockServerCall from './Components/MockServerCall'
 
 import {
 	BrowserRouter as Router,
@@ -45,7 +46,7 @@ function App() {
               <Link to="/pokemon-list">PokemonList</Link>
             </li>          
             <li>
-              <Link to="/own-use-reducer">CreateUseReducer</Link>
+              <Link to="/mock-server-call">MockServerCall</Link>
             </li>          
             
           </ul>
@@ -58,6 +59,9 @@ function App() {
           <ScrollToTopRoute exact path="/test-js" component={TestJS} />
           <ScrollToTopRoute exact path="/pokemon-list" component={PokemonList} />
           <ScrollToTopRoute exact path="/own-use-reducer" component={OwnUseReducer} />
+          <ScrollToTopRoute exact path="/mock-server-call" component={MockServerCall} />
+
+          
           <ScrollToTopRoute exact component={NoMatch} />
         </Switch>
 
