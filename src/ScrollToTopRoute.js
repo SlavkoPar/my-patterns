@@ -1,7 +1,8 @@
-import React, { Component, useState, useEffect }  from 'react';
-const { withRouter } = require('react-router-dom');
+import React, { Component } from 'react';
+import { Route, withRouter } from 'react-router-dom';
+import PropTypes from "prop-types";
 
-class ScrollToTopRoute extends Component {
+class ScrollToTop extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.location.pathname !== prevProps.location.pathname) {
@@ -27,13 +28,16 @@ class ScrollToTopRoute extends Component {
 	}
 }
 
-ScrollToTopRoute.propTypes = {
+ScrollToTop.propTypes = {
 	path: PropTypes.string,
 	location: PropTypes.shape({
 		pathname: PropTypes.string,
 	}),
 	component: PropTypes.instanceOf(Component),
-	RouteKey: PropTypes.boolean,
+	RouteKey: PropTypes.object,
 };
 
-export default withRouter(ShowTheLocation);
+
+const ScrollToTopRoute = withRouter(ScrollToTop)
+
+export { ScrollToTopRoute };
