@@ -28,7 +28,8 @@
   color: #09d3ac;
   list-style-type: none;
   width: 100%;
-  bbborder: 1px solid red;
+  border: 1px solid red;
+  flex-wrap: wrap;
 }
 
 .router-links > li {
