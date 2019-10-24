@@ -11,6 +11,9 @@ import MockServerCall from './Components/MockServerCall'
 import PromiseALL from './Components/PromiseALL'
 import LazyLoad from './Components/LazyLoad'
 import SimpleDebounce from './Components/SimpleDebounce'
+import Resized from './Components/Resized'
+import Recurse from './Components/Recurse'
+
 
 import {
 	BrowserRouter as Router,
@@ -26,6 +29,7 @@ import './App.css';
 import './PokemonList.css';
 
 function App() {
+
   return (
     <div className="App">
 
@@ -60,8 +64,16 @@ function App() {
             
             <li>
               <Link to="/simple-debounce">SimpleDebounce</Link>
-            </li>          
-            
+            </li>       
+
+            <li>
+              <Link to="/resized">Resized</Link>
+            </li>  
+
+            <li>
+              <Link to="/recurse">Recurse</Link>
+            </li>       
+              
           </ul>
 
         </header>
@@ -82,6 +94,9 @@ function App() {
           </ScrollToTopRoute>
 
           <ScrollToTopRoute exact path="/simple-debounce" component={SimpleDebounce} />
+          <ScrollToTopRoute exact path="/resized"  component={Resized} />
+          <ScrollToTopRoute exact path="/recurse"  component={Recurse} />
+          
           
           <ScrollToTopRoute exact component={NoMatch} />
         </Switch>
