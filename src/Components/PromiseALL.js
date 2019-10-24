@@ -6,19 +6,31 @@ const Test = (props) => (
 	  {props.code}
 	</div>
   );
-  
+	
+	const fnStatus = (response) => {
+		if (response.status >= 200 && response.status < 300) {
+			return Promise.resolve(response)
+		}
+		return Promise.reject(new Error(response.statusText))
+	}
+
+	const fnJson = (response) => response.json()
 
 class PromiseALL extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
+	state = {
 		  data : { deck_id: 'unknown' },
-		  sve: []
-		}
-	  }
+			sve: [],
+			todos: []
+	}
 
 	componentDidMount() {
+
+		fetch('./todos.json')
+			.then(fnStatus)
+			.then(fnJson)
+			.then((data) => { this.setState({ todos: data })	})
+			.catch((error) => console.log('request failed', error))
 
 		fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
 		  .then(response => response.json())
@@ -67,6 +79,12 @@ class PromiseALL extends Component {
 				<div>
 					{rows}
 				</div>
+				<hr />
+				<pre>
+					JSON.stringify(this.state.todos, null, 2)
+					<br />
+				  {JSON.stringify(this.state.todos, null, 2)}
+				</pre>
 			</div>			
 		)
 	 }
