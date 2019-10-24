@@ -81,7 +81,7 @@ class PromiseALL extends Component {
 				</div>
 				<hr />
 				<pre>
-					JSON.stringify(this.state.todos, null, 2)
+					<b>JSON.stringify(this.state.todos, null, 2)</b>
 					<br />
 				  {JSON.stringify(this.state.todos, null, 2)}
 				</pre>

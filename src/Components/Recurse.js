@@ -47,6 +47,8 @@ class Recurse extends Component {
 		  <>
 			 <pre>
 				 Formated state object <br />
+				 <b>JSON.stringify(this.state, null, 2)</b>
+				 <br />
         {JSON.stringify(this.state, null, 2)}
       </pre>
 
