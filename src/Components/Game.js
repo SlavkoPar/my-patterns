@@ -48,16 +48,19 @@ const GameStatus = {
  const Footer = ({ gameStatus, countdown, startGame, resetGame }) => {
 	const buttonAreaContent = () => {
 	  switch(gameStatus) {
-		 case GameStatus.NEW:
+		case GameStatus.NEW:
 			return <button onClick={startGame}>Start Game</button>;
-		 case GameStatus.CALLENGE:
-			// fall-through
-		 case GameStatus.PLAYING:
+
+		case GameStatus.CALLENGE: // eslint-disable-next-line no-fallthrough
+		case GameStatus.PLAYING:
 			return countdown;
-		 case GameStatus.WON:
-			// fall-through
-		 case GameStatus.LOST:
+
+		case GameStatus.WON: // eslint-disable-next-line no-fallthrough
+		case GameStatus.LOST:
 			return <button onClick={resetGame}>Play Again</button>;
+		
+		default:
+			throw new Error("undefined case")
 	  }
 	};
 	return (
@@ -107,7 +110,7 @@ const GameStatus = {
 	  return () => clearTimeout(timerId);
 	}, [challengeSeconds, gameStatus]);  
 	
-	React.useEffect(() => {
+	useEffect(() => {
 	  const [correctPicks, wrongPicks] = utils.arrayCrossCounts(
 		 pickedCellIds,
 		 challengeCellIds
@@ -118,7 +121,7 @@ const GameStatus = {
 	  if (wrongPicks === maxWrongAttempts) {
 		 setGameStatus(GameStatus.LOST);
 	  }
-	}, [pickedCellIds]);
+	}, [pickedCellIds, challengeCellIds, challengeSize, maxWrongAttempts]); // [pickedCellIds] eslint asked for it
 	
 	const pickCell = cellId => {
 	  if (gameStatus === GameStatus.PLAYING) {
@@ -166,7 +169,7 @@ const GameStatus = {
  };
  
  const Game = () => {
-	const { gameId, isNewGame, renewGame } = useGameId();
+	const { isNewGame, renewGame } = useGameId();  // { gameId, 
  
 	const gridSize = 5;
 	const challengeSize = 6;

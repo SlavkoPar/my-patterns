@@ -4,12 +4,14 @@ class Home extends Component {
 
 	componentDidUpdate(prevProps) {
 	  // will be true
-	  var locationChanged =
-		 this.props.location !== prevProps.location;
- 
+	  var locationChanged = this.props.location !== prevProps.location;
+	  console.log(locationChanged)
+
 	  // INCORRECT, will *always* be false because history is mutable.
 	  locationChanged =
 		 this.props.history.location !== prevProps.history.location;
+		
+		console.log(locationChanged)
 	}
 
 	render() {
