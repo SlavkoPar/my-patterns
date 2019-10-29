@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect }  from 'react';
+import React, { Component }  from 'react';
 
 
 function Counted(acc, ch) {
@@ -67,7 +67,7 @@ class TestJS extends Component {
       {name: 'Jkl', type:"info", amount: 4.00},
       {name: 'Mno', type:"book", amount: 5.50}
     ]
-    const byBooks = (order) => order.type == "book";
+    const byBooks = (order) => order.type === "book";
     const cartAmount = (order) => order.amount;
     const suma = (acc, amount) => acc + amount;
     const total = ShoppingCart
@@ -110,9 +110,9 @@ class TestJS extends Component {
         <div>
           <code>
           <br/>
-          // first param desc
+          first param desc
           <br/>
-          // second param asc
+          second param asc
           <br/>
           <br/>
           SortBy2Params([

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScrollToTopRoute } from './ScrollToTopRoute'
 import Home from './Components/Home'
-import Search from './Components/Search'
 import NoMatch from './Components/NoMatch'
 import About from './Components/About'
 import PokemonList from './Components/PokemonList'
@@ -11,19 +10,21 @@ import MockServerCall from './Components/MockServerCall'
 import PromiseALL from './Components/PromiseALL'
 import LazyLoad from './Components/LazyLoad'
 import SimpleDebounce from './Components/SimpleDebounce'
+import { Game } from './Components/Game'
 
 import {
 	BrowserRouter as Router,
 	Switch,
-	Route,
+	// Route,
 	Link
  } from "react-router-dom";
 
- import PropTypes from 'prop-types';
+ // import PropTypes from 'prop-types';
 
 import logo from './logo.svg';
 import './App.css';
-import './PokemonList.css';
+import './Components/PokemonList.css';
+import './Components/Game.css';
 
 function App() {
   return (
@@ -60,8 +61,11 @@ function App() {
             
             <li>
               <Link to="/simple-debounce">SimpleDebounce</Link>
-            </li>          
-            
+            </li>  
+
+				<li>
+              <Link to="/game">Game</Link>
+            </li>  
           </ul>
 
         </header>
@@ -76,12 +80,13 @@ function App() {
           <ScrollToTopRoute exact path="/promise-all" component={PromiseALL} />
 
           <ScrollToTopRoute exact path="/lazy-load" component={LazyLoad}>
-            <img src="https://media.giphy.com/media/HhvUpQhBWMtwc/200.gif"/>
-            <img src="https://media2.giphy.com/media/3oEduUDvycvu3GYkdG/200w.gif"/>
-            <img src="https://media0.giphy.com/media/142UITjG5GjIRi/200w.gif" />
+            <img alt="" src="https://media.giphy.com/media/HhvUpQhBWMtwc/200.gif"/>
+            <img alt="" src="https://media2.giphy.com/media/3oEduUDvycvu3GYkdG/200w.gif"/>
+            <img alt="" src="https://media0.giphy.com/media/142UITjG5GjIRi/200w.gif" />
           </ScrollToTopRoute>
 
           <ScrollToTopRoute exact path="/simple-debounce" component={SimpleDebounce} />
+          <ScrollToTopRoute exact path="/game" component={Game} />
           
           <ScrollToTopRoute exact component={NoMatch} />
         </Switch>
