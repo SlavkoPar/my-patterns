@@ -60,7 +60,7 @@ const GameStatus = {
 			return <button onClick={resetGame}>Play Again</button>;
 		
 		default:
-			throw new Error("undefined case")
+			break;
 	  }
 	};
 	return (
