@@ -2,7 +2,6 @@ import React from 'react';
 import { ScrollToTopRoute } from './ScrollToTopRoute'
 import Home from './Components/Home'
 import NoMatch from './Components/NoMatch'
-import About from './Components/About'
 import PokemonList from './Components/PokemonList'
 import TestJS from './Components/TestJS'
 import OwnUseReducer from './Components/OwnUseReducer'
@@ -10,6 +9,8 @@ import MockServerCall from './Components/MockServerCall'
 import PromiseALL from './Components/PromiseALL'
 import LazyLoad from './Components/LazyLoad'
 import SimpleDebounce from './Components/SimpleDebounce'
+import Resized from './Components/Resized'
+import Recurse from './Components/Recurse'
 import { Game } from './Components/Game'
 
 import {
@@ -27,6 +28,7 @@ import './Components/PokemonList.css';
 import './Components/Game.css';
 
 function App() {
+
   return (
     <div className="App">
 
@@ -39,9 +41,6 @@ function App() {
           <ul className="router-links">
             <li>
               <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
             </li>
             <li>
               <Link to="/test-js">TestJS</Link>
@@ -72,7 +71,6 @@ function App() {
 
         <Switch>
           <ScrollToTopRoute exact path="/" component={Home} />
-          <ScrollToTopRoute exact path="/about" component={About} />
           <ScrollToTopRoute exact path="/test-js" component={TestJS} />
           <ScrollToTopRoute exact path="/pokemon-list" component={PokemonList} />
           <ScrollToTopRoute exact path="/own-use-reducer" component={OwnUseReducer} />
@@ -87,6 +85,10 @@ function App() {
 
           <ScrollToTopRoute exact path="/simple-debounce" component={SimpleDebounce} />
           <ScrollToTopRoute exact path="/game" component={Game} />
+
+          <ScrollToTopRoute exact path="/resized"  component={Resized} />
+          <ScrollToTopRoute exact path="/recurse"  component={Recurse} />
+          
           
           <ScrollToTopRoute exact component={NoMatch} />
         </Switch>
