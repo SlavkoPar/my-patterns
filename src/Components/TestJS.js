@@ -1,6 +1,5 @@
 import React, { Component }  from 'react';
 
-
 function Counted(acc, ch) {
   if (ch in acc) {
     acc[ch]++;
@@ -45,54 +44,145 @@ function SortBy2Params(arr) {
   return arr;
 }
 
+String.prototype.repeatify = function(n) {
+	var s = ""
+	for (var i=0; i < n; i++)
+		s += this
+	return s
+}
+
+
+function countCharRepeating(str) {
+	/*
+	You have a string aaabbdcccccf, transform it the following way => a3b2d1c5f1 
+	ie: aabbaa -> a2b2a2 not a4b2
+	*/
+
+	const arr = str.split("")
+	let i = 0;
+	const res = []
+	while (i < arr.length) {
+		let ch = arr[i];
+		let n = 0;
+		while (arr[i] === ch && i < arr.length) {
+			n++;
+			i++;
+		}
+		res.push(ch+n)
+	}
+	console.log("countCharRepeating: ", res.join(''))
+}
+
 
 class TestJS extends Component {
 	
+
 	render() {
 
-    const arr = [
-      ['a', 3],
-      ['b', 4],
-      ['c', 3],
-    ];
-    SortBy2Params(arr);
+
+		countCharRepeating("aaabbdcccccf")
+
+		function pFn(acc, w) {
+			const key = w.split('').sort();
+			if (!acc[key]) {
+			  acc[key] = [];
+			}
+			acc[key].push(w);
+			return acc;
+		 }
+
+		function findStrings() {
+			var args = Array.from(arguments)
+			var anagrams = args.reduce(pFn, {});
+			for (let key in anagrams) {
+				console.log("[", anagrams[key].toString(), "]")
+			}
+		} 
+
+		findStrings('act', 'cat', 'spot', 'tops', 'pots', 'jump');
+	
+		/*
+		[
+			["act", "cat"],
+			["spot", "tops", "pots"]
+		]
+		*/
+
+
+		(function() {
+			f();
+		
+			f = function() {
+				 console.log(1);
+			}
+		})()
+		
+		function f() {
+			console.log(2)
+		}
+
+		f();
+
+		var add = (function () {
+			var counter = 0;
+			return function () {
+				return counter += 1;
+			}
+		})();
+	
+		var z = 'bla'.repeatify(3)
+		console.log(z);
+
+		let w=add(); 
+		w=add(); 
+		w=add();
+		console.log(w)
+		
+
+		const n = 4;
+		const arr = [
+			['a', 3],
+			['b', 4],
+			['c', 3],
+		];
+    	SortBy2Params(arr);
   
-    var maxOccurring = maximumOccurringCharacter("Hello World");
+    	var maxOccurring = maximumOccurringCharacter("Hello World");
 
 
-    const ShoppingCart = [
-      {name: 'Abc', type:"book", amount: 3.00},
-      {name: 'Def', type:"info", amount: 10.50},
-      {name: 'Ghi', type:"book", amount: 7.0},
-      {name: 'Jkl', type:"info", amount: 4.00},
-      {name: 'Mno', type:"book", amount: 5.50}
-    ]
-    const byBooks = (order) => order.type === "book";
-    const cartAmount = (order) => order.amount;
-    const suma = (acc, amount) => acc + amount;
-    const total = ShoppingCart
-                .filter(byBooks)
-                .map(cartAmount)
-                .reduce(suma, 0);
+		const ShoppingCart = [
+			{name: 'Abc', type:"book", amount: 3.00},
+			{name: 'Def', type:"info", amount: 10.50},
+			{name: 'Ghi', type:"book", amount: 7.0},
+			{name: 'Jkl', type:"info", amount: 4.00},
+			{name: 'Mno', type:"book", amount: 5.50}
+		]
+		const byBooks = (order) => order.type === "book";
+		const cartAmount = (order) => order.amount;
+		const suma = (acc, amount) => acc + amount;
+		const total = ShoppingCart
+						.filter(byBooks)
+						.map(cartAmount)
+						.reduce(suma, 0);
 
-    //////////////////////
-    // Grouped people
-    var people = [
-      { name: 'Dexon', age: 20 },
-      { name: 'Alice', age: 21 },
-      { name: 'Jane', age: 20 }
-    ];
-       
-    function fn(acc, obj) {
-      var key = obj['age'];
-      if (!acc[key]) {
-        acc[key] = [];
-      }
-      acc[key].push(obj);
-      return acc;
-    }
+		//////////////////////
+		// Grouped people
+		var people = [
+			{ name: 'Dexon', age: 20 },
+			{ name: 'Alice', age: 21 },
+			{ name: 'Jane', age: 20 }
+		];
+			
+		function fn(acc, obj) {
+			var key = obj['age'];
+			if (!acc[key]) {
+			acc[key] = [];
+			}
+			acc[key].push(obj);
+			return acc;
+		}
 
-    const groupedPeople = people.reduce(fn, {});
+		const groupedPeople = people.reduce(fn, {});
 
 		return (
 			<>
@@ -129,7 +219,7 @@ class TestJS extends Component {
           <br/>
           Result:
           <ul>
-            {arr.map(item => <li>[{item[0]}, {item[1]}]</li>)}
+            {arr.map(item => <li key={item[0]}>[{item[0]}, {item[1]}]</li>)}
           </ul>
         </div>
         <hr/>

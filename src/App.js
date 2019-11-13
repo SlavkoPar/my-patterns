@@ -40,10 +40,10 @@ function App() {
           
           <ul className="router-links">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/Home">Home</Link>
             </li>
             <li>
-              <Link to="/test-js">TestJS</Link>
+              <Link to="/">TestJS</Link>  {/* test-js */}
             </li>
             <li>
               <Link to="/pokemon-list">PokemonList</Link>
@@ -70,8 +70,8 @@ function App() {
         </header>
 
         <Switch>
-          <ScrollToTopRoute exact path="/" component={Home} />
-          <ScrollToTopRoute exact path="/test-js" component={TestJS} />
+          <ScrollToTopRoute exact path="/Home" component={Home} />
+          <ScrollToTopRoute exact path="/" component={TestJS} />
           <ScrollToTopRoute exact path="/pokemon-list" component={PokemonList} />
           <ScrollToTopRoute exact path="/own-use-reducer" component={OwnUseReducer} />
           <ScrollToTopRoute exact path="/mock-server-call" component={MockServerCall} />
