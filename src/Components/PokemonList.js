@@ -20,7 +20,15 @@ const axiosGitHubGraphQL = axios.create({
 
 });
 
-
+/*
+    attacks {
+      special {
+        name
+        type
+        damage
+      }
+    }
+*/
 const getPokemons = `
 {
   pokemons(first: 50) {
@@ -36,21 +44,7 @@ const getPokemons = `
       maximum
     }
     types
-    attacks {
-      special {
-        name
-        type
-        damage
-      }
-    }
     image
-    attacks {
-      special {
-        name
-        type
-        damage
-      }
-    }
   }
 }
 `;
@@ -73,6 +67,7 @@ function PokemonList() {
         query: getPokemons,
       })
       .then(result => {
+			const z = JSON.stringify(result.data.data.pokemons)
           setData(result.data.data.pokemons)
           // errors: result.data.errors,
         }

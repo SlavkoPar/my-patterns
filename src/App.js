@@ -7,6 +7,7 @@ import TestJS from './Components/TestJS'
 import OwnUseReducer from './Components/OwnUseReducer'
 import MockServerCall from './Components/MockServerCall'
 import PromiseALL from './Components/PromiseALL'
+import { PromiseMy } from './Components/PromiseMy'
 import LazyLoad from './Components/LazyLoad'
 import SimpleDebounce from './Components/SimpleDebounce'
 import Resized from './Components/Resized'
@@ -53,7 +54,10 @@ function App() {
             </li>          
             <li>
               <Link to="/promise-all">PromiseALL</Link>
-            </li>          
+            </li> 
+				<li>
+              <Link to="/promise-my">PromiseMy</Link>
+            </li> 				         
             <li>
               <Link to="/lazy-load">LazyLoad</Link>
             </li>          
@@ -76,6 +80,8 @@ function App() {
           <ScrollToTopRoute exact path="/own-use-reducer" component={OwnUseReducer} />
           <ScrollToTopRoute exact path="/mock-server-call" component={MockServerCall} />
           <ScrollToTopRoute exact path="/promise-all" component={PromiseALL} />
+          
+			 <ScrollToTopRoute exact path="/promise-my" component={PromiseMy}/>
 
           <ScrollToTopRoute exact path="/lazy-load" component={LazyLoad}>
             <img alt="" src="https://media.giphy.com/media/HhvUpQhBWMtwc/200.gif"/>
